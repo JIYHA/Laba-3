@@ -71,7 +71,5 @@ namespace Program6
             }                                                                              
             return array[i] + Min(array, i + 1);
         }
-        internal static int Min(int[] A)
-        }
     }
 }
