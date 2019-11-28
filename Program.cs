@@ -1,47 +1,52 @@
 ﻿using System;
 
-namespace Program2
+namespace Program5
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int limit = 1;
-            int[,] nums = new int[7, 7];
+            int[,] A = new int[5, 5];
+            int[,] B = new int[5, 5];
+
             Random rand = new Random();
-            for (int i = 0; i < nums.GetLength(0); i++)
+            Console.Write("Массив А:");
+            Console.WriteLine("\n\n");
+            for (int i = 0; i < A.GetLength(0); i++)
             {
-                for (int j = 0; j < nums.GetLength(1); j++)
+                for (int j = 0; j < A.GetLength(1); j++)
                 {
-                    nums[i, j] = rand.Next(100);
-                    if (limit > nums.GetLength(0))
+                    A[i, j] = rand.Next(10);
+                    Console.Write("{0, 2}  ", A[i, j]);
+                }
+                Console.WriteLine();
+            }
+            Console.Write("Массив B:");
+            Console.WriteLine("\n\n");
+            for (int i = 0; i < B.GetLength(0); i++)
+            {
+                for (int j = 0; j < B.GetLength(1); j++)
+                {
+                    B[i, j] = rand.Next(10);
+
+                    Console.Write("{0, 2}  ", B[i, j]);
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n\n");
+            int[,] r = new int[5, 5];
+            for (int i = 0; i < 5; i++)
+            {
+                for (int k = 0; k < 5; k++)
+                {
+
+                    for (int j = 0; j < 5; j++)
                     {
-                        Console.Write("\n\n");
-                        limit = 1;
+                        r[i, k] += A[i, j] * B[j, i];
+                        Console.Write("{0,2}", r[i, j]);
                     }
-                    limit++;
-                    Console.Write("{0, 2}  ", nums[i, j]);
-
-
                 }
             }
-            Console.Write("\n\n");
-
-            for (int i = 0; i < nums.GetLength(0); i++)
-            {
-                for (int j = 0; j < nums.GetLength(1); j++)
-                {
-                    if (limit > nums.GetLength(0))
-                    {
-                        Console.Write("\n\n");
-                        limit = 1;
-                    }
-                    limit++;
-                    Console.Write("{0, 2}  ", nums[6 - j, i]);
-
-                }
-            }
-
         }
     }
 }
