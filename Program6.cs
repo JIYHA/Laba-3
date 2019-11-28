@@ -63,18 +63,15 @@ namespace Program6
                 }
                 return min;
             }
-             static int Min(int[] arr, int i = 0)
+             static int Min(int[] array, int i = 0)
             {
-                int min = 100;
-                if (i == arr.Length - 1)
-                    return arr[i];
-
-                else
-                {
-                    min = arr[i];
-                }
-                return Math.Min(arr[i], Min(arr, i + 1));
-            }
+            if (array[i] == array[array.Length - 1])
+            {
+                return array[array.Length - 1];
+            }                                                                              
+            return array[i] + Min(array, i + 1);
+        }
+        internal static int Min(int[] A)
         }
     }
 }
