@@ -1,6 +1,9 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace Program5
+namespace ConsoleApplication1
 {
     class Program
     {
@@ -17,7 +20,7 @@ namespace Program5
                 for (int j = 0; j < A.GetLength(1); j++)
                 {
                     A[i, j] = rand.Next(10);
-                    Console.Write("{0, 2}  ", A[i, j]);
+                    Console.Write("{0, 2} ", A[i, j]);
                 }
                 Console.WriteLine();
             }
@@ -29,7 +32,7 @@ namespace Program5
                 {
                     B[i, j] = rand.Next(10);
 
-                    Console.Write("{0, 2}  ", B[i, j]);
+                    Console.Write("{0, 2} ", B[i, j]);
                 }
                 Console.WriteLine();
             }
@@ -42,11 +45,19 @@ namespace Program5
 
                     for (int j = 0; j < 5; j++)
                     {
-                        r[i, k] += A[i, j] * B[j, i];
-                        Console.Write("{0,2}", r[i, j]);
+                        r[i, k] += A[i, j] * B[j, k];
                     }
                 }
             }
+             for (int i = 0; i < 5; i++)
+            {
+                for (int k = 0; k < 5; k++)
+                {
+                    Console.Write("{0, 3} ", r[i, k]);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
         }
     }
 }
