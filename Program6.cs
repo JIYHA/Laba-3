@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Program6
 {
@@ -12,6 +12,7 @@ namespace Program6
             Random rand = new Random();
             int sumR = 0;
             int element = 0;
+            int minRec = int.MaxValue;
             Console.WriteLine("ARRAY");
             for (int i = 0; i < 5; i++)
             {
@@ -25,11 +26,10 @@ namespace Program6
             Console.WriteLine("\n Operation 3 \n");
             Console.WriteLine("minim = " + minim(array));
             Console.WriteLine("\n Operation 4 \n");
-            int[] arr = { 5, 1, 5, 3, 2, 5, -5, 0, 9, 3 };
-            var min1 = Min(arr);
+            var min1 = Min(array, minRec, element);
             Console.WriteLine(min1);
             Console.ReadKey();
-
+        }
             static int sum1(int[] array)
             {
                 int sum1 = 0;
@@ -63,13 +63,17 @@ namespace Program6
                 }
                 return min;
             }
-             static int Min(int[] array, int i = 0)
+            static int Min(int[] array, int minRec, int element)
             {
-            if (array[i] == array[array.Length - 1])
-            {
-                return array[array.Length - 1];
-            }                                                                              
-            return array[i] + Min(array, i + 1);
+			    if (element < array.Length)
+			    {
+				     if (array[element] < minRec) 
+				     { 
+				 	    minRec = array[element];
+				     }
+				     return Min(array, minRec, ++element);
+			    }
+			    return minRec;
+            }
         }
     }
-}
