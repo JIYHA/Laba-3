@@ -40,6 +40,35 @@ namespace Program7
             }
             Console.WriteLine("S is: "+S);
             Console.Write("\n\n");
+            
+            //1
+            Console.WriteLine("Spiral");
+            int[,] nums = new int[9,9];
+            int k = 0;
+            int lim = 1;
+            for (int j = 0; j < nums.GetLength(1);j++ )
+            {
+                if (k==0)
+                {
+                for (int i = 0; i < nums.GetLength(0); i++)
+                {
+                    nums[i, j] = 1+i;
+                    if (lim > 9)
+                    {
+                        Console.Write("\n\n");
+                        lim = 1;
+                    }
+                    lim++;
+
+                    Console.Write("{0,3} ", nums[i,j]);
+                }
+                k++;
+                }
+
+
+            }
+            //Console.Write("\n\n");
+            Console.ReadKey();
         }
     }   
 }
